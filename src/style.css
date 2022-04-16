@@ -2,6 +2,36 @@
     box-sizing: border-box;
 }
 
+/* font-family: 'Karla', sans-serif; */
+
 body {
     margin: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.App {
+    border: 1px solid magenta;
+    max-width: 550px;
+    width: 100%;
+    height: 550px;
+    display: block;
+    margin: 0 auto;
+}
+
+.Quiz {
+    padding: 26px 75px 25px;
+}
+
+.Quiz .question {
+    margin: 14px 0;
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #293264;
 }

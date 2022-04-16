@@ -4,9 +4,9 @@ import Intro from "./Components/Intro"
 import Quiz from "./Components/Quiz"
 
 export default function App() {
-    const [loaded, setLoaded] = useState(false)
+    const [loaded, setLoaded] = useState(true)
 
-    function showQuiz() {
+    function startQuiz() {
         return setLoaded(true) 
     }
 
@@ -20,8 +20,7 @@ export default function App() {
    } else {
        return (
            <div className="App">
-               <Intro showQuiz={showQuiz}/>
-              
+               <Intro startQuiz={startQuiz}/>
            </div>
        )
    }
