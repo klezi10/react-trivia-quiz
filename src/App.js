@@ -4,7 +4,7 @@ import Intro from "./Components/Intro"
 import Quiz from "./Components/Quiz"
 
 export default function App() {
-    const [loaded, setLoaded] = useState(true)
+    const [loaded, setLoaded] = useState(false)
 
     function startQuiz() {
         return setLoaded(true) 
@@ -13,14 +13,20 @@ export default function App() {
    if (loaded) {
        return (
            <div className="App">
-               <Quiz />
-               
+                <div className="question-container">
+                    <Quiz />
+                    <Quiz />
+                    <Quiz />
+                    <Quiz />
+                    <Quiz />
+                    <button>Check answers</button>
+               </div>
            </div>
        )
    } else {
        return (
-           <div className="App">
-               <Intro startQuiz={startQuiz}/>
+           <div className="App"> 
+                   <Intro startQuiz={startQuiz}/>
            </div>
        )
    }

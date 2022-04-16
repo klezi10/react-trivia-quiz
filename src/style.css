@@ -2,8 +2,6 @@
     box-sizing: border-box;
 }
 
-/* font-family: 'Karla', sans-serif; */
-
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -12,19 +10,67 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background: black;
 }
 
 .App {
-    border: 1px solid magenta;
     max-width: 550px;
     width: 100%;
-    height: 550px;
     display: block;
     margin: 0 auto;
+    background: #F5F7FB;
+    height: 550px;
+    width: 550px;
+    color: #293264;
+    background-image: url(./Images/blobs-yellow.png), url(./Images/blobs-blue.png);
+    background-repeat: no-repeat;
+    background-position: top right, bottom left;
 }
 
-.Quiz {
+.App .question-container {
     padding: 26px 75px 25px;
+}
+
+.Intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    
+}
+
+.Intro .intro-container {
+    text-align: center;
+}
+
+.Intro .title {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+    margin: 0;
+}
+
+.Intro .description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+ 
+}
+
+.Intro .start-btn {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #F5F7FB;
+    background: #4D5B9E;
+    border: none;
+    border-radius: 15px;
+    padding: 0.7em 3.9em;
 }
 
 .Quiz .question {
@@ -33,5 +79,5 @@ body {
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: #293264;
 }
+
