@@ -19,7 +19,7 @@ export default function App() {
                     <Quiz />
                     <Quiz />
                     <Quiz />
-                    <button>Check answers</button>
+                    <button className="check-answers">Check answers</button>
                </div>
            </div>
        )

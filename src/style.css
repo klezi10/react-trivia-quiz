@@ -11,6 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: black;
+    color: #293264;
 }
 
 .App {
@@ -19,16 +20,13 @@ body {
     display: block;
     margin: 0 auto;
     background: #F5F7FB;
-    height: 550px;
-    width: 550px;
-    color: #293264;
     background-image: url(./Images/blobs-yellow.png), url(./Images/blobs-blue.png);
     background-repeat: no-repeat;
     background-position: top right, bottom left;
 }
 
 .App .question-container {
-    padding: 26px 75px 25px;
+    padding: 40px 75px 25px;
 }
 
 .Intro {
@@ -37,7 +35,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 550px;
-    
+    width: 550px;
 }
 
 .Intro .intro-container {
@@ -58,26 +56,47 @@ body {
     font-size: 16px;
     line-height: 19px;
     text-align: center;
- 
+}
+
+button {
+    background: #4D5B9E;
+    color: #F5F7FB;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
 }
 
 .Intro .start-btn {
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    text-align: center;
-    color: #F5F7FB;
-    background: #4D5B9E;
-    border: none;
-    border-radius: 15px;
     padding: 0.7em 3.9em;
 }
 
+.Quiz {
+    border-bottom: 0.8 solid #DBDEF0;
+    padding: 15px 0;
+}
+
 .Quiz .question {
-    margin: 14px 0;
+    margin: 0;
     font-family: 'Karla';
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
 }
 
+.Quiz .choices {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
+.App .check-answers {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 12px;
+    padding: 1em 2em;
+    display: block;
+    margin: 0 auto;
+}
