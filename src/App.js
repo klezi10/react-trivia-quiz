@@ -2,12 +2,23 @@ import React, { useState } from "react"
 import "./style.css"
 import Intro from "./Components/Intro"
 import Quiz from "./Components/Quiz"
+import axios from "axios"
 
 export default function App() {
     const [loaded, setLoaded] = useState(false)
+    // const [questions, setQuestions] = useState()
 
     function startQuiz() {
-        return setLoaded(true) 
+        setLoaded(true)
+        getQuestions()
+    }
+
+    function getQuestions() {
+        axios.get('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple').then(handleResponse)
+    }
+
+    function handleResponse(response) {
+        console.log(response.data.results)
     }
 
    if (loaded) {
@@ -24,7 +35,7 @@ export default function App() {
                         question="In which country was the caesar salad invented?" />
                     <Quiz 
                         question="How Many Hearts Does An Octopus Have?" />
-                        
+
                     <button className="check-answers">Check answers</button>
                </div>
            </div>
@@ -37,10 +48,3 @@ export default function App() {
        )
    }
 }
-
-
-
-
-// 2 components: intro-page & quiz
-// use state to control which page to show
-//               once you click start quiz btn, set state to loaded (quiz page) & set conditional rendering
