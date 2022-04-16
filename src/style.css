@@ -15,6 +15,7 @@ body {
 }
 
 .App {
+    /* max-width: 550px; */
     max-width: 550px;
     width: 100%;
     display: block;
@@ -74,7 +75,7 @@ button {
 }
 
 .Quiz {
-    border-bottom: 0.8 solid #DBDEF0;
+    border-bottom: 0.8px solid #DBDEF0;
     padding: 15px 0;
 }
 
@@ -98,5 +99,12 @@ button {
     line-height: 12px;
     padding: 1em 2em;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto 0;
+}
+
+.Quiz .choices .answer {
+    border: 1px solid #293264;
+    border-radius: 8px;
+    padding: 0.2em 0.9em;
+    cursor: pointer;
 }
