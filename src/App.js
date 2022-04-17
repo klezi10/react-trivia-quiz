@@ -2,11 +2,12 @@ import React, { useState } from "react"
 import "./style.css"
 import Intro from "./Components/Intro"
 import Quiz from "./Components/Quiz"
+import getKey from "./Components/Getkey"
 import axios from "axios"
 
 export default function App() {
-    const [loaded, setLoaded] = useState(false)
-    // const [questions, setQuestions] = useState()
+    const [loaded, setLoaded] = useState(false);
+    const [results, setResults] = useState([]);
 
     function startQuiz() {
         setLoaded(true)
@@ -18,33 +19,38 @@ export default function App() {
     }
 
     function handleResponse(response) {
-        console.log(response.data.results)
+       let results = response.data.results
+       console.log(results)
+      setResults(results) 
     }
 
-   if (loaded) {
-       return (
-           <div className="App">
-                <div className="question-container">
-                    <Quiz 
-                        question="How would one say goodbye in Spanish?" />
-                    <Quiz 
-                        question="Which best selling toy of 1983 caused hysteria, resulting in riots breaking in stores?"/>
-                    <Quiz
-                        question="What is the hottest planet in our Solar System?" />
-                    <Quiz
-                        question="In which country was the caesar salad invented?" />
-                    <Quiz 
-                        question="How Many Hearts Does An Octopus Have?" />
+    const questions = results.map(result => {
+            return (
+            <Quiz 
+                key={getKey()}
+                question={result.question}
+                correctAnswer={result.correct_answer}
+            />
+            );
+        });
 
-                    <button className="check-answers">Check answers</button>
-               </div>
-           </div>
-       )
-   } else {
        return (
-           <div className="App"> 
-                   <Intro startQuiz={startQuiz}/>
-           </div>
+           loaded 
+            ?
+            <div className="App">
+                <div className="question-container">
+                {questions}
+
+                <button className="check-answers">Check answers</button>
+                </div>
+            </div>
+            :
+            <div className="App"> 
+                    <Intro startQuiz={startQuiz}/>
+            </div>
+
        )
-   }
+
+       
+   
 }

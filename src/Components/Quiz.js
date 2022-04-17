@@ -6,7 +6,7 @@ export default function Quiz(props) {
         <div className="Quiz">
            <p className="question">{props.question}</p>
                 <div className="choices">
-                    <p className="answer">Hola</p>
+                    <p className="answer">{props.correctAnswer}</p>
                     <p className="answer">Hola</p>
                     <p className="answer">Hola</p> 
                     <p className="answer">Hola</p> 
