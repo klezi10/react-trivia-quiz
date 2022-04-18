@@ -30,6 +30,7 @@ export default function App() {
                 key={getKey()}
                 question={result.question}
                 correctAnswer={result.correct_answer}
+                incorrectAnswers={result.incorrect_answers}
             />
             );
         });
