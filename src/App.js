@@ -19,19 +19,18 @@ export default function App() {
     }
 
     function handleResponse(response) {
-       let results = response.data.results
-       console.log(results)
-      setResults(results) 
+        const results = response.data.results
+        setResults(results) 
     }
 
     const questions = results.map(result => {
             return (
-            <Quiz 
-                key={getKey()}
-                question={result.question}
-                correctAnswer={result.correct_answer}
-                incorrectAnswers={result.incorrect_answers}
-            />
+                <Quiz 
+                    key={getKey()}
+                    question={result.question}
+                    correctAnswer={result.correct_answer}
+                    incorrectAnswers={result.incorrect_answers}
+                />
             );
         });
 
@@ -49,9 +48,5 @@ export default function App() {
             <div className="App"> 
                     <Intro startQuiz={startQuiz}/>
             </div>
-
        )
-
-       
-   
 }
