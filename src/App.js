@@ -20,7 +20,19 @@ export default function App() {
 
     function handleResponse(response) {
         const results = response.data.results
-        setResults(results) 
+        callFunction(results)
+        return {
+            question: results.question,
+            correctAnswer: results.correct_answer,
+            incorrectAnswers: results.incorrect_answers,
+            isHeld: false,
+            // id: getKey()
+        }
+    }
+
+    function callFunction(results) {
+        console.log(results)
+        setResults(results)
     }
 
     const questions = results.map(result => {

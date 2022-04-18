@@ -18,6 +18,10 @@ export default function Quiz(props) {
     
     const shuffledAnswers = answersArray.sort((a, b) => 0.5 - Math.random())
 
+    const styles = {
+        backgroundColor: props.isHeld ? "#D6DBF5" : "none"
+    }
+
     return (
         <div className="Quiz">
            <p className="question">{props.question}</p>
@@ -25,7 +29,7 @@ export default function Quiz(props) {
                 {shuffledAnswers.map(eachAnswer => {
                         return (
                         <div key={getKey()}>
-                            <p className="answer">{eachAnswer}</p>
+                            <p className="answer" style={styles}>{eachAnswer}</p>
                         </div>
                         )
                     })}
