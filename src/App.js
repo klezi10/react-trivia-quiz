@@ -3,7 +3,7 @@ import "./style.css"
 import Intro from "./Components/Intro"
 import Quiz from "./Components/Quiz"
 import getKey from "./Components/Getkey"
-import axios from "axios"
+// import axios from "axios"
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
@@ -15,24 +15,12 @@ export default function App() {
     }
 
     function getQuestions() {
-        axios.get('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple').then(handleResponse)
-    }
-
-    function handleResponse(response) {
-        const results = response.data.results
-        callFunction(results)
-        return {
-            question: results.question,
-            correctAnswer: results.correct_answer,
-            incorrectAnswers: results.incorrect_answers,
-            isHeld: false,
-            // id: getKey()
-        }
-    }
-
-    function callFunction(results) {
-        console.log(results)
-        setResults(results)
+        fetch('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple')
+            .then(response => response.json())
+            .then(data => {
+                // const results = data.results
+                setResults(data.results)
+            })
     }
 
     const questions = results.map(result => {
@@ -62,3 +50,23 @@ export default function App() {
             </div>
        )
 }
+
+
+    // const answersArray = []
+
+    // function handleResponse(response) {
+    //     const results = response.data.results
+    //     callFunction(results)
+    //     return {
+    //         question: results.question,
+    //         correctAnswer: results.correct_answer,
+    //         incorrectAnswers: results.incorrect_answers,
+    //         isHeld: false,
+    //         // id: getKey()
+    //     }
+    // }
+
+    // function callFunction(results) {
+    //     console.log(results)
+    //     setResults(results)
+    // }
