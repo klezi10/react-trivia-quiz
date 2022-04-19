@@ -11,14 +11,13 @@ export default function Quiz(props) {
         isHeld: false
     })
 
-    const eachOne = incorrectAnswers.map(eachAnswer => {
+    const eachIncorrectAnswer = incorrectAnswers.map(eachAnswer => {
         return eachAnswer
     })
     
-    for (let i = 0; i < eachOne.length; i++) {
-        
+    for (let i = 0; i < eachIncorrectAnswer.length; i++) {
       answersArray.push({
-          value: eachOne[i],
+          value: eachIncorrectAnswer[i],
           isHeld: false
         })  
     }
