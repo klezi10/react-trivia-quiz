@@ -7,6 +7,7 @@ export default function Quiz(props) {
 
     const answersArray = []
     answersArray.push({
+        id: getKey(),
         value: correctAnswer,
         isHeld: false
     })
@@ -17,6 +18,7 @@ export default function Quiz(props) {
     
     for (let i = 0; i < eachIncorrectAnswer.length; i++) {
       answersArray.push({
+        id: getKey(),
           value: eachIncorrectAnswer[i],
           isHeld: false
         })  
@@ -26,8 +28,12 @@ export default function Quiz(props) {
     
     const shuffledAnswers = answersArray.sort((a, b) => 0.5 - Math.random())
 
+    function handleClickAnswer() {
+       console.log('clicked')
+    }
+
     const styles = {
-        backgroundColor: props.isHeld ? "#D6DBF5" : "none"
+        backgroundColor: shuffledAnswers.isHeld ? "#D6DBF5" : "none"
     }
 
     return (
@@ -37,7 +43,7 @@ export default function Quiz(props) {
                 {shuffledAnswers.map(eachAnswer => {
                         return (
                         <div key={getKey()}>
-                            <p className="answer" style={styles}>{eachAnswer.value}</p>
+                            <p className="answer" style={styles} onClick={handleClickAnswer}>{eachAnswer.value}</p>
                         </div>
                         )
                     })}
