@@ -6,15 +6,24 @@ export default function Quiz(props) {
     const correctAnswer = props.correctAnswer
 
     const answersArray = []
-    answersArray.push(correctAnswer)
+    answersArray.push({
+        value: correctAnswer,
+        isHeld: false
+    })
 
     const eachOne = incorrectAnswers.map(eachAnswer => {
         return eachAnswer
     })
     
     for (let i = 0; i < eachOne.length; i++) {
-      answersArray.push(eachOne[i])  
+        
+      answersArray.push({
+          value: eachOne[i],
+          isHeld: false
+        })  
     }
+
+   console.log(answersArray)
     
     const shuffledAnswers = answersArray.sort((a, b) => 0.5 - Math.random())
 
@@ -29,7 +38,7 @@ export default function Quiz(props) {
                 {shuffledAnswers.map(eachAnswer => {
                         return (
                         <div key={getKey()}>
-                            <p className="answer" style={styles}>{eachAnswer}</p>
+                            <p className="answer" style={styles}>{eachAnswer.value}</p>
                         </div>
                         )
                     })}
