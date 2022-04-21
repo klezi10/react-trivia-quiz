@@ -74,7 +74,7 @@ button {
     padding: 0.7em 3.9em;
 }
 
-.Quiz {
+.QuizData {
     border-bottom: 0.8px solid #DBDEF0;
     padding: 15px 0;
 }
@@ -87,12 +87,6 @@ button {
     line-height: 19px;
 }
 
-.Quiz .choices {
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-}
-
 .App .check-answers {
     font-size: 10px;
     font-weight: 600;
@@ -102,9 +96,15 @@ button {
     margin: 20px auto 0;
 }
 
-.Quiz .choices .answer {
+.Quiz .answer {
     border: 1px solid #293264;
     border-radius: 8px;
     padding: 0.2em 0.9em;
     cursor: pointer;
+}
+
+.quiz-answers {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
 }

@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import "./style.css"
 import Intro from "./Components/Intro"
-import Quiz from "./Components/Quiz"
 import getKey from "./Components/Getkey"
+import QuizData from "./Components/QuizData"
 // import axios from "axios"
 
 export default function App() {
@@ -18,55 +18,34 @@ export default function App() {
         fetch('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple')
             .then(response => response.json())
             .then(data => {
-                // const results = data.results
                 setResults(data.results)
             })
     }
 
     const questions = results.map(result => {
-            return (
-                <Quiz 
-                    key={getKey()}
-                    question={result.question}
-                    correctAnswer={result.correct_answer}
-                    incorrectAnswers={result.incorrect_answers}
-                />
-            );
-        });
+        return (
+            <QuizData
+                key={getKey()}
+                question={result.question}
+                correctAnswer={result.correct_answer}
+                incorrectAnswers={result.incorrect_answers}
+            />
+        );
+    });
 
-       return (
-           loaded 
+    return (
+        loaded
             ?
             <div className="App">
                 <div className="question-container">
-                {questions}
+                    {questions}
 
-                <button className="check-answers">Check answers</button>
+                    <button className="check-answers">Check answers</button>
                 </div>
             </div>
             :
-            <div className="App"> 
-                    <Intro startQuiz={startQuiz}/>
+            <div className="App">
+                <Intro startQuiz={startQuiz} />
             </div>
-       )
+    )
 }
-
-
-    // const answersArray = []
-
-    // function handleResponse(response) {
-    //     const results = response.data.results
-    //     callFunction(results)
-    //     return {
-    //         question: results.question,
-    //         correctAnswer: results.correct_answer,
-    //         incorrectAnswers: results.incorrect_answers,
-    //         isHeld: false,
-    //         // id: getKey()
-    //     }
-    // }
-
-    // function callFunction(results) {
-    //     console.log(results)
-    //     setResults(results)
-    // }
