@@ -30,6 +30,16 @@ export default function QuizData(props) {
     answersArray.sort((a, b) => 0.5 - Math.random())
     console.log(answersArray)
 
+    //================needs work
+    function handleClickAnswer(id) {
+        console.log('clicked')
+        setAnswersArray(oldAnswers => oldAnswers.map(oldAnswer => {
+            return oldAnswer.id === id ?
+            {...oldAnswer, isHeld: !oldAnswer.isHeld} : oldAnswer
+        }))
+    }
+//=============================================================
+
     const allAnswers = answersArray.map(eachAnswer => {
         return (
             <Quiz
@@ -41,14 +51,7 @@ export default function QuizData(props) {
         )
     })
 
-    function handleClickAnswer(id) {
-        console.log('clicked')
-        setAnswersArray(oldAnswers => oldAnswers.map(oldAnswer => {
-            return oldAnswer.id === id ?
-            {...oldAnswer, isHeld: !oldAnswer.isHeld} : oldAnswer
-        }))
-    }
-
+    
     return (
         <div className="QuizData">
             <p className="question">{props.question}</p>
