@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Quiz(props) {
     const styles = {
-        backgroundColor: props.isHeld ? "#D6DBF5" : "none"
+        backgroundColor: props.isHeld ? "#D6DBF5" : "white"
     }
 
     return (

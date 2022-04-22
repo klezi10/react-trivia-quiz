@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import getKey from "./Getkey"
 import Quiz from "./Quiz"
 
 export default function QuizData(props) {
-    const answersArray = []
+    const [answersArray, setAnswersArray] = useState([])
+    // const answersArray = []
 
     const incorrectAnswers = props.incorrectAnswers
     const correctAnswer = props.correctAnswer
@@ -33,15 +34,19 @@ export default function QuizData(props) {
         return (
             <Quiz
                 key={getKey()}
-                isHeld={false}
+                isHeld={eachAnswer.isHeld}
                 answers={eachAnswer.value}
-                handleClickAnswer={() => handleClickAnswer(eachAnswer.value)}
+                handleClickAnswer={() => handleClickAnswer(eachAnswer.id)}
             />
         )
     })
 
-    function handleClickAnswer() {
+    function handleClickAnswer(id) {
         console.log('clicked')
+        setAnswersArray(oldAnswers => oldAnswers.map(oldAnswer => {
+            return oldAnswer.id === id ?
+            {...oldAnswer, isHeld: !oldAnswer.isHeld} : oldAnswer
+        }))
     }
 
     return (
