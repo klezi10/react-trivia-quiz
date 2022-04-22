@@ -7,7 +7,9 @@ export default function Quiz(props) {
 
     return (
         <div className="Quiz">
-            <p className="answer" style={styles} onClick={props.handleClickAnswer}>{props.answers}</p>
+            <p className="answer" style={styles} onClick={props.holdAnswer}>
+                {props.value}
+            </p>
         </div>
     )
 }

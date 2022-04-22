@@ -31,11 +31,10 @@ export default function QuizData(props) {
     console.log(answersArray)
 
     //================needs work
-    function handleClickAnswer(id) {
-        console.log('clicked')
-        setAnswersArray(oldAnswers => oldAnswers.map(oldAnswer => {
-            return oldAnswer.id === id ?
-            {...oldAnswer, isHeld: !oldAnswer.isHeld} : oldAnswer
+    function holdAnswer(id) {
+        setAnswersArray(oldAnswers => oldAnswers.map(eachAnswer => {
+            return eachAnswer.id === id ?
+            {...eachAnswer, isHeld: !eachAnswer.isHeld} : eachAnswer
         }))
     }
 //=============================================================
@@ -43,10 +42,10 @@ export default function QuizData(props) {
     const allAnswers = answersArray.map(eachAnswer => {
         return (
             <Quiz
-                key={getKey()}
+                key={eachAnswer.id}
                 isHeld={eachAnswer.isHeld}
-                answers={eachAnswer.value}
-                handleClickAnswer={() => handleClickAnswer(eachAnswer.id)}
+                value={eachAnswer.value}
+                holdAnswer={() => holdAnswer(eachAnswer.id)}
             />
         )
     })
