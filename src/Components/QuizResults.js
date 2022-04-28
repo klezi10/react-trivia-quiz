@@ -1,10 +1,10 @@
 import React from "react"
 import QuizTest from "./QuizTest"
-import "./QuizCalculations.css"
+import "./QuizResults.css"
 import CheckAnswersBtn from "./CheckAnswersBtn"
 
-export default function QuizCalculations(props) {
-    console.log(props.results)
+export default function QuizResults(props) {
+    // console.log(props.results)
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -12,7 +12,7 @@ export default function QuizCalculations(props) {
     }
 
     return (
-        <form className="QuizCalculations" onSubmit={handleSubmit}>
+        <form className="QuizResults" onSubmit={handleSubmit}>
             {props.results.map(result => (
                 <QuizTest
                     key={Math.random().toString()}
@@ -22,7 +22,7 @@ export default function QuizCalculations(props) {
                 />
                 
             ))}
-              <CheckAnswersBtn handleSubmit={handleSubmit}/>
+              <CheckAnswersBtn />
         </form>
     )
 }

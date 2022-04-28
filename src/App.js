@@ -4,7 +4,7 @@ import Intro from "./Components/Intro"
 // import getKey from "./Components/Getkey"
 // import QuizData from "./Components/QuizData"
 // import axios from "axios"
-import QuizCalculations from "./Components/QuizCalculations"
+import QuizResults from "./Components/QuizResults"
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
@@ -39,7 +39,7 @@ export default function App() {
             ?
             <div className="App">
                 <div className="question-container">
-                    <QuizCalculations results={results} />
+                    <QuizResults results={results} />
                 </div>
             </div>
             :

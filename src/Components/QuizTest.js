@@ -3,7 +3,6 @@ import QuizAnswers from "./QuizAnswers"
 import "./QuizTest.css"
 
 export default function QuizTest(props) {
-    console.log(props.handleSubmit)
     
     // const [answersArray, setAnswersArray] = useState([])
 
