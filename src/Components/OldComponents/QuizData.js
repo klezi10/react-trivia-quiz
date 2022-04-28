@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import getKey from "./Getkey"
+import getKey from "../Getkey"
 import Quiz from "./Quiz"
 
 function QuizData(props) {
