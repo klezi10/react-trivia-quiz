@@ -1,6 +1,6 @@
 import React from "react"
 import QuizAnswers from "./QuizAnswers"
-import "./QuizTest.css"
+import "../Components/styles/QuizTest.css"
 
 export default function QuizTest(props) {
     

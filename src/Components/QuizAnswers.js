@@ -1,5 +1,5 @@
 import React from "react"
-import "./QuizAnswers.css"
+import "../Components/styles/QuizAnswers.css"
 
 export default function QuizAnswers(props) {
 //    console.log(props.value)
