@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import getKey from "./Getkey"
 import Quiz from "./Quiz"
 
-export default function QuizData(props) {
+function QuizData(props) {
     const [answersArray, setAnswersArray] = useState([])
     // const answersArray = []
 

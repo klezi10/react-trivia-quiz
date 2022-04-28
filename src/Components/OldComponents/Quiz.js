@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Quiz(props) {
+function Quiz(props) {
     const styles = {
         backgroundColor: props.isHeld ? "#D6DBF5" : "white"
     }

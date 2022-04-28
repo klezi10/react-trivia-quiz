@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import "./style.css"
 import Intro from "./Components/Intro"
-import getKey from "./Components/Getkey"
-import QuizData from "./Components/QuizData"
+// import getKey from "./Components/Getkey"
+// import QuizData from "./Components/QuizData"
 // import axios from "axios"
+import QuizCalculations from "./Components/QuizCalculations"
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
@@ -11,10 +12,10 @@ export default function App() {
 
     function startQuiz() {
         setLoaded(true)
-        getQuestions()
+        getApi()
     }
 
-    function getQuestions() {
+    function getApi() {
         fetch('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple')
             .then(response => response.json())
             .then(data => {
@@ -22,25 +23,23 @@ export default function App() {
             })
     }
 
-    const questions = results.map(result => {
-        return (
-            <QuizData
-                key={getKey()}
-                question={result.question}
-                correctAnswer={result.correct_answer}
-                incorrectAnswers={result.incorrect_answers}
-            />
-        );
-    });
+    // const questions = results.map(result => {
+    //     return (
+    //         <QuizData
+    //             key={getKey()}
+    //             question={result.question}
+    //             correctAnswer={result.correct_answer}
+    //             incorrectAnswers={result.incorrect_answers}
+    //         />
+    //     );
+    // });
 
     return (
         loaded
             ?
             <div className="App">
                 <div className="question-container">
-                    {questions}
-
-                    <button className="check-answers">Check answers</button>
+                    <QuizCalculations results={results} />
                 </div>
             </div>
             :
