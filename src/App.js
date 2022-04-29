@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./style.css"
 import Intro from "./Components/Intro"
 // import getKey from "./Components/Getkey"
@@ -12,16 +12,20 @@ export default function App() {
 
     function startQuiz() {
         setLoaded(true)
-        getApi()
     }
 
-    function getApi() {
-        fetch('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple')
+    useEffect(() => {
+        function getApi() {
+            fetch('https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple')
             .then(response => response.json())
             .then(data => {
+                console.log(data.results)
                 setResults(data.results)
             })
-    }
+        }
+        getApi()
+    }, [])
+
 
     // const questions = results.map(result => {
     //     return (
