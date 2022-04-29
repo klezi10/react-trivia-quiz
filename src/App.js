@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react"
-import "./style.css"
 import Intro from "./Components/Intro"
-// import getKey from "./Components/Getkey"
-// import QuizData from "./Components/QuizData"
-// import axios from "axios"
 import QuizResults from "./Components/QuizResults"
+import "./style.css"
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
@@ -25,18 +22,6 @@ export default function App() {
         }
         getApi()
     }, [])
-
-
-    // const questions = results.map(result => {
-    //     return (
-    //         <QuizData
-    //             key={getKey()}
-    //             question={result.question}
-    //             correctAnswer={result.correct_answer}
-    //             incorrectAnswers={result.incorrect_answers}
-    //         />
-    //     );
-    // });
 
     return (
         loaded

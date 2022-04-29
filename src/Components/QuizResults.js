@@ -1,10 +1,9 @@
 import React from "react"
 import QuizTest from "./QuizTest"
-import "../Components/styles/QuizResults.css"
 import CheckAnswersBtn from "./CheckAnswersBtn"
+import "../Components/styles/QuizResults.css"
 
 export default function QuizResults(props) {
-    // console.log(props.results)
 
     function handleSubmit(event) {
         event.preventDefault()

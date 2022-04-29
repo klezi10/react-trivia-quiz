@@ -5,14 +5,6 @@ import "../Components/styles/QuizTest.css"
 export default function QuizTest(props) {
     const [answers, setAnswers] = useState(stupidArray())
  
-    // let correctAnswer = props.correctAnswer
-
-    // const eachIncorrectAnswer = props.incorrectAnswers.map(eachAnswer => {
-    //     return eachAnswer
-    // })
-
-    
-
     function stupidArray() {
        const answersArray = []
        for (let i = 0; i < props.incorrectAnswers.length; i++) {

@@ -2,7 +2,6 @@ import React from "react"
 import "../Components/styles/QuizAnswers.css"
 
 export default function QuizAnswers(props) {
-//    console.log(props.correct)
 
    const styles = {
        backgroundColor: props.isHeld ? "#D6DBF5" : "white"
