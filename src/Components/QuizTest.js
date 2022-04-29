@@ -3,39 +3,41 @@ import QuizAnswers from "./QuizAnswers"
 import "../Components/styles/QuizTest.css"
 
 export default function QuizTest(props) {
-    const [answersArray, setAnswersArray] = useState([])
+    const [answers, setAnswers] = useState(stupidArray())
+ 
+    // let correctAnswer = props.correctAnswer
 
-    let correctAnswer = props.correctAnswer
+    // const eachIncorrectAnswer = props.incorrectAnswers.map(eachAnswer => {
+    //     return eachAnswer
+    // })
 
-    const eachIncorrectAnswer = props.incorrectAnswers.map(eachAnswer => {
-        return eachAnswer
-    })
+    
 
-    answersArray.push({
-        id: Math.random().toString(),
-        value: correctAnswer,
-        correct: true,
-        isHeld: false
-    })
-
-
-    for (let i = 0; i < eachIncorrectAnswer.length; i++) {
+    function stupidArray() {
+       const answersArray = []
+       for (let i = 0; i < props.incorrectAnswers.length; i++) {
         answersArray.push({
             id: Math.random().toString(),
-           value: eachIncorrectAnswer[i],
-           correct: false,
-           isHeld: false
+            value: props.incorrectAnswers[i],
+            correct: false,
+            isHeld: false
         })
     }
+        answersArray.push({
+            id: Math.random().toString(),
+            value: props.correctAnswer,
+            correct: true,
+            isHeld: false
+        })
+        return answersArray.sort((a, b) => 0.5 - Math.random())
+    }
 
-    answersArray.sort((a, b) => 0.5 - Math.random())
-   
-    function holdAnswer(event, id) {
-        console.log(event)
-        // setAnswersArray(prevState => prevState.map(eachAnswer => {
-        //     return eachAnswer.id === id ?
-        //     {isHeld: !eachAnswer.isHeld} : eachAnswer
-        // }))
+    function holdAnswer(id) {
+        console.log(id)
+        setAnswers(prevState => prevState.map(eachAnswer => {
+            return eachAnswer.id === id ?
+                { ...eachAnswer, isHeld: !eachAnswer.isHeld } : eachAnswer
+        }))
     }
 
     return (
@@ -44,8 +46,8 @@ export default function QuizTest(props) {
                 {props.question}
             </div>
             <div className="QuizAnswers-answers">
-                {answersArray.map(answer => (
-                    <QuizAnswers 
+                {answers.map(answer => (
+                    <QuizAnswers
                         key={Math.random().toString()}
                         id={answer.id}
                         value={answer.value}

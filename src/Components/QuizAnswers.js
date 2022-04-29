@@ -2,15 +2,15 @@ import React from "react"
 import "../Components/styles/QuizAnswers.css"
 
 export default function QuizAnswers(props) {
-//    console.log(props.value)
+//    console.log(props.correct)
 
    const styles = {
-       backgroundColor: props.isHeld ? "blue" : "white"
+       backgroundColor: props.isHeld ? "#D6DBF5" : "white"
    }
 
     return (
-        <div className="quiz-answers">
-            <p className="answer" style={styles} onClick={props.holdAnswer}>{props.value}</p>      
+        <div className="quiz-answers" onClick={props.holdAnswer}>
+            <p className="answer" style={styles} >{props.value}</p>      
         </div>
     )
 }

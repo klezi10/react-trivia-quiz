@@ -43,7 +43,9 @@ export default function App() {
             ?
             <div className="App">
                 <div className="question-container">
-                    <QuizResults results={results} />
+                    <QuizResults 
+                        results={results}
+                    />
                 </div>
             </div>
             :
