@@ -3,9 +3,9 @@ import QuizAnswers from "./QuizAnswers"
 import "../Components/styles/QuizTest.css"
 
 export default function QuizTest(props) {
-    const [answers, setAnswers] = useState(stupidArray())
+    const [answers, setAnswers] = useState(allAnswers())
  
-    function stupidArray() {
+    function allAnswers() {
        const answersArray = []
        for (let i = 0; i < props.incorrectAnswers.length; i++) {
         answersArray.push({
@@ -25,7 +25,6 @@ export default function QuizTest(props) {
     }
 
     function holdAnswer(id) {
-        console.log(id)
         setAnswers(prevState => prevState.map(eachAnswer => {
             return eachAnswer.id === id ?
                 { ...eachAnswer, isHeld: !eachAnswer.isHeld } : eachAnswer
