@@ -4,6 +4,7 @@ import "../Components/styles/QuizTest.css"
 
 export default function QuizTest(props) {
     const [answers, setAnswers] = useState(allAnswers())
+    const [count, setCount] = useState(0)
  
     function allAnswers() {
        const answersArray = []
@@ -24,13 +25,17 @@ export default function QuizTest(props) {
         return answersArray.sort((a, b) => 0.5 - Math.random())
     }
 
-    function holdAnswer(id) {
+    function holdAnswer(id, correct) {
         setAnswers(prevState => prevState.map(eachAnswer => {
             return eachAnswer.id === id ?
                 { ...eachAnswer, isHeld: !eachAnswer.isHeld } : eachAnswer
         }))
+        if (correct) {
+            setCount(prevCount => prevCount + 1)
+        }
+       
     }
-
+    console.log(count)
     return (
         <div className="QuizTest">
             <div className="question">
@@ -44,7 +49,7 @@ export default function QuizTest(props) {
                         value={answer.value}
                         correct={answer.correct}
                         isHeld={answer.isHeld}
-                        holdAnswer={() => holdAnswer(answer.id)}
+                        holdAnswer={() => holdAnswer(answer.id, answer.correct)}
                     />
                 ))}
             </div>
