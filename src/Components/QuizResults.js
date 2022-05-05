@@ -19,9 +19,9 @@ export default function QuizResults(props) {
                     correctAnswer={result.correct_answer}
                     incorrectAnswers={result.incorrect_answers}
                 />
-                
             ))}
-              <CheckAnswersBtn />
+           
+              <CheckAnswersBtn type="submit">Check answers</CheckAnswersBtn>
         </form>
     )
 }

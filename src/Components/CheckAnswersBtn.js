@@ -6,8 +6,6 @@ export default function CheckAnswersBtn(props) {
     // }
 
     return (
-        <div className="CheckAnswersBtn">
-            <button className="check-answers">Check answers</button>
-        </div>
+        <button type={props.type} className="CheckAnswersBtn check-answers">{props.children}</button>
     )
 }
